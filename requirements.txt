@@ -1,0 +1,7 @@
+tello-python
+numpy
+matplotlib
+opencv-python
+flask
+paddlepaddle
+paddlehub
