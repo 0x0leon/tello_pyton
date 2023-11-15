@@ -69,9 +69,11 @@ def main():
 
 
     while True:
-
+        
+        # get frame from drone camera
         frame = drone.get_frame_read().frame
 
+        # get hsv
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
         f_mask = cv2.inRange(hsv, follow_color_lower, follow_color_upper)
@@ -79,6 +81,7 @@ def main():
         cntrs, _ = cv2.findContours(f_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         if cntrs:
+
             largest_contoure = max(cntrs, key=cv2.contourArea)
 
             Matrix  = cv2.moments(largest_contoure)
@@ -101,7 +104,7 @@ def main():
             break
     drone.streamoff()
     cv2.destroyAllWindows()
-    
+
 
 if __name__ == "__main__":
     main()

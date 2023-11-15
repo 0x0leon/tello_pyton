@@ -22,7 +22,7 @@ def addPoint(x,y,z):
     yList.append(y)
     zList.append(z)
 
-for i in range(0, 50, 1):
+for i in range(0, 100, 1):
     addPoint(i, i, i)
     time.sleep(0.001)
 
@@ -30,9 +30,9 @@ for i in range(0, 50, 1):
     ax.clear()
     ax.plot(xList, yList, zList, label='flight path')
     
-    ax.set_xlabel('X')
-    ax.set_ylabel('Y')
-    ax.set_zlabel('Z')
+    ax.set_xlabel('X cm')
+    ax.set_ylabel('Y cm')
+    ax.set_zlabel('Z cm')
 
     ax.legend()
     ax.grid(True)
